@@ -1,5 +1,5 @@
-# Semantic Segmentation in Cataract Surgical Scenes Using Test Time Adaptation
-The repository is the official pytorch implementation of paper **Semantic Segmentation in Cataract Surgical Scenes Using Multi-View Test Time Adaptation**. 
+# Multi-view Test-time Adaptation for Semantic Segmentation in Clinical Cataract Surgery
+The repository is the official pytorch implementation of paper **Multi-view Test-time Adaptation for Semantic Segmentation in Clinical Cataract Surgery**. 
 
 ## Prerequsite
 ### Dataset
