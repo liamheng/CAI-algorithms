@@ -3,7 +3,7 @@ The repository is the official pytorch implementation of paper **Semantic Segmen
 
 ## Prerequsite
 ### Dataset
-![](https://github.com/liamheng/CAI-algorithms/blob/main/figs/anno_samples.png)
+![](https://github.com/liamheng/CAI-algorithms/blob/main/figs/dataset_overview_github.png)
 
 ### Package dependency
 
