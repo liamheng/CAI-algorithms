@@ -5,6 +5,8 @@ The repository is the official pytorch implementation of paper **Multi-view Test
 ### Dataset
 ![](https://github.com/liamheng/CAI-algorithms/blob/main/figs/dataset_overview_github.png)
 
+**Dataset Preprocessing:** [Category Standardization](https://github.com/liamheng/CAI-algorithms/blob/main/Category%20Standardization.pdf)
+
 ### Package dependency
 
 - easydict==5.1.1
