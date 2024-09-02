@@ -65,7 +65,7 @@ bash storage/scripts/muta_sfda_cadis2cats.sh # sfda from CaDIS to CatS
 Similar to the source pretraining procudure, we provide the deeplabv3 versions for TTA and SFDA respectively:
 
 ```sh
-# tta_deeplanv3
+# tta_deeplabv3
 bash storage/scripts/deeplanv3_tta_cadis2catinstseg.sh # tta from CaDIS to CatInstSeg
 bash storage/scripts/deeplanv3_tta_cadis2cats.sh # tta from CaDIS to CatS
 
