@@ -1,0 +1,19 @@
+python test.py \
+--name deeplabv3_cadis \
+--gpu 6 \
+--checkpoints_dir storage/checkpoints/ \
+--phase test \
+--model source \
+--batch_size 3 \
+--output_nc 6 \
+--netTask deeplabv3_resnet50 \
+--initialization in_model \
+--dataset single_domain \
+--data_root /data/oumingyang/CodeBank/storage/datasets/CatInstSeg_clean \
+--preprocess rescale \
+--load_size 720 405 \
+--mapping_file_name mapping_merge_tools \
+--load_suffix final \
+--results_dir storage/results/ \
+--save_suffix catinstseg \
+--eval

@@ -1,0 +1,198 @@
+{
+    "general":{
+        "name": {
+            "type": "str",
+            "required": true   
+        },
+        "gpu": {
+            "type": "int",
+            "default": 0
+        },
+        "checkpoints_dir": {
+            "type": "str",
+            "default": "./storage/checkpoints"
+        },
+        "phase": {
+            "type": "str",
+            "default": "training"
+        },
+        "model": {
+            "type": "str",
+            "required": true
+        },
+        "batch_size": {
+            "type": "int",
+            "default": 1
+        },
+        "input_nc": {
+            "type": "int",
+            "default": 3
+        },
+        "output_nc": {
+            "type": "int",
+            "default": 12
+        },
+        "netTask": {
+            "type": "str",
+            "required": true
+        },
+        "initialization": {
+            "type": "str",
+            "default": "normal"
+        },
+        "init_gain": {
+            "type": "float",
+            "default": 0.02
+        },
+        "load_suffix": {
+            "type": "str",
+            "default": null
+        },
+        "dataset": {
+            "type": "str",
+            "required": true
+        },
+        "data_root": {
+            "type": "str",
+            "required": true
+        },
+        "specific_statistics":{
+            "action":"store_true"
+        },
+        "shuffle": {
+            "action": "store_true"
+        },
+        "num_threads": {
+            "type": "int",
+            "default": 4
+        },
+        "drop_last": {
+            "action": "store_true"
+        },
+        "max_dataset_size": {
+            "type": "int",
+            "default": 99999999999
+        },
+        "preprocess": {
+            "type": "str",
+            "default": null
+        },
+        "load_size": {
+            "type": "int",
+            "default": [720, 405],
+            "nargs":2
+        },
+        "mapping_file_name": {
+            "type": "str",
+            "default": "mapping.csv"
+        },
+        "ignore_label": {
+            "type": "int",
+            "default": -1
+        },
+        "description":{
+            "type": "str",
+            "default": ""
+        },
+        "rounds":{
+            "type": "int",
+            "default": 1
+        }
+    },
+    "training":{
+        "display_server": {
+            "type": "str",
+            "default": "http://localhost"
+        },
+        "display_port": {
+            "type": "int",
+            "default": 8090
+        },
+        "display_env": {
+            "type": "str",
+            "default": "main"
+        },
+        "display_freq": {
+            "type": "int",
+            "default": 30
+        },
+        "save_log": {
+            "type": "int",
+            "default": 0
+        },
+        "save_by": {
+            "type": "str",
+            "default": "epoch"
+        },
+        "save_freq": {
+            "type": "int",
+            "default": 10
+        },
+        "add_timestamp": {
+            "action": "store_true"
+        },
+        "continue_train": {
+            "action": "store_true"
+        },
+        "epoch_start": {
+            "type": "int",
+            "default": 1
+        },
+        "epoch_end": {
+            "type": "int",
+            "default": 50
+        },
+        "lr": {
+            "type": "float",
+            "default": 0.002
+        },
+        "lr_policy": {
+            "type": "str",
+            "default": "constant"
+        },
+        "lr_update_by":{
+            "type":"str",
+            "default":"epoch"
+        },
+        "lr_update_freq": {
+            "type": "int",
+            "default": 1
+        },
+        "validation":{
+            "action":"store_true"
+        },
+        "validation_root":{
+            "type":"str",
+            "default": "None"
+        },
+        "validation_dataset":{
+            "type":"str",
+            "default":"single_domain"
+        },
+        "tta_steps":{
+            "type":"int",
+            "default":1
+        },
+        "results_dir": {
+                "type": "str",
+                "default": "./storage/results"
+        },
+        "save_suffix":{
+            "type": "str",
+            "default": ""
+        }
+    },
+    "test": {
+        "results_dir": {
+            "type": "str",
+            "default": "./storage/results"
+        },
+        "eval": {
+            "action": "store_true"
+        },
+        "save_suffix":{
+            "type": "str",
+            "default": ""
+        }
+    }
+}

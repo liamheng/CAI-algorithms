@@ -20,17 +20,27 @@ The repository is the official pytorch implementation of paper **Multi-view Test
 - yaml==0.2.5
 
 ## Source Pretraining
+
+**We provide the checkpoints of pretrain model for convenience:**
+
+[Deeplabv3_ResNet50](https://www.dropbox.com/scl/fi/c4gd9jw8tq471o5jxu95l/deeplabv3_cadis.pth?rlkey=pqotfmc5cpb7crklbawvz0dl3&st=xgoxvc61&dl=0)
+
+
 For source pretraining phase of MUTA model, run the following command:
 
 ```sh
 # source_muta
-python exp.py --exp_dir projects/muta/source_pretraining --config source_muta.yaml
+bash storage/scripts/muta_source_cadis.sh # training on dataset CaDIS
+bash storage/scripts/muta_source_cadis_catinstseg.sh # testing on dataset CatInstSeg
+bash storage/scripts/muta_source_cadis_cats.sh # testing on dataset CatS
 ```
 
 Alternatively, we provide a script to pretrain deeplabv3 as the baseline:
 ```sh
 # source_deeplabv3
-python exp.py --exp_dir projects/muta/source_pretraining --config source_deeplabv3.yaml
+bash storage/scripts/deeplabv3_cadis.sh # training on dataset CaDIS
+bash storage/scripts/deeplabv3_cadis_catinstseg.sh # testing on dataset CatInstSeg
+bash storage/scripts/deeplabv3_cadis_cats.sh # testing on dataset CatS
 ```
 
 ## Adaptation
@@ -40,22 +50,26 @@ To conduct **Test Time Adaptation(TTA)**, where each sample is adapted individua
 
 ```sh
 # tta_muta
-python exp.py --exp_dir projects/muta/target_adaptation --config tta_muta.yaml
+bash storage/scripts/muta_tta_cadis2catinstseg.sh # tta from CaDIS to CatInstSeg
+bash storage/scripts/muta_tta_cadis2cats.sh # tta from CaDIS to CatS
 ```
 
 For **Source Free Domain Adaptation(SFDA)**, where samples from target domain are adapted all together, run the command:
 
 ```sh
 # sfda_muta
-python exp.py --exp_dir projects/muta/target_adaptation --config sfda_muta.yaml
+bash storage/scripts/muta_sfda_cadis2catinstseg.sh # sfda from CaDIS to CatInstSeg
+bash storage/scripts/muta_sfda_cadis2cats.sh # sfda from CaDIS to CatS
 ```
 
 Similar to the source pretraining procudure, we provide the deeplabv3 versions for TTA and SFDA respectively:
 
 ```sh
 # tta_deeplanv3
-python exp.py --exp_dir projects/muta/target_adaptation --config tta_deeplabv3.yaml
+bash storage/scripts/deeplanv3_tta_cadis2catinstseg.sh # tta from CaDIS to CatInstSeg
+bash storage/scripts/deeplanv3_tta_cadis2cats.sh # tta from CaDIS to CatS
 
 # sfda_deeplabv3
-python exp.py --exp_dir projects/muta/target_adaptation --config sfda_deeplabv3.yaml
+bash storage/scripts/deeplanv3_sfda_cadis2catinstseg.sh # sfda from CaDIS to CatInstSeg
+bash storage/scripts/deeplanv3_sfda_cadis2cats.sh # sfda from CaDIS to CatS
 ```

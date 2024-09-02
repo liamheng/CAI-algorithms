@@ -1,45 +1,31 @@
-from utility.configuration import CONFIG
-from utility.logger import LOGGER
-from utility.file_locating import obtain_class_from_file
-from utility.mallicious import lower_keys
-from torch import save, load
-from os import makedirs
-from os.path import join
+import importlib
+from models.base_model import BaseModel
 
-SAVE_DIR = join(CONFIG['EXP_DIRS'], CONFIG['EXP_NAME'], 'checkpoints')
-makedirs(SAVE_DIR, exist_ok=True)
+def find_model(model_name):
+    
+    # import py module of model
+    model_filename = "models.%s_model" % model_name
+    model_lib = importlib.import_module(model_filename)
 
-registry = {
-    'deeplabv3_resnet101': 'models/segmentation/deeplabv3.py',
-    'deeplabv3_resnet50': 'models/segmentation/deeplabv3.py',
-    'resnet50': 'models/backbone/resnet.py',
-    'resnet101': 'models/backbone/resnet.py',
-    'aspp': 'models/segmentation/deeplabv3.py'
-}
+    model = None
 
-def obtain_model(config):
-    name = config["NAME"]
-    args = lower_keys(config['ARGS'])
-    device = f'cuda:{config['GPU']}'
-    model = obtain_class_from_file(registry[name], name)(**args).to(device)
+    # get model
+    model_classname = model_name.split(".")[-1].replace('_', '') + 'model'
+    for name, cls in model_lib.__dict__.items():
+        if name.lower() == model_classname.lower() and issubclass(cls, BaseModel):
+            model = cls
+    if model is None:
+        print("In %s.py, there should be a subclass of BaseModel with class name that matches %s in lowercase." % (model_filename, model_classname))
+        exit(0)
+    
     return model
 
-MODELS_CONFIG = CONFIG['MODELS']
-MODELS = {c['NAME']: obtain_model(c) for c in MODELS_CONFIG}
-MODEL_DEVICE = {m: next(v.parameters()).device for m, v in MODELS.items()}
-LOGGER.info(f"Models loaded: {MODELS.keys()}")
+def create_model(opt, logger):
 
-
-def save_models(models, prefix):
-    for name, model in models.items():
-        save(model.state_dict(), join(SAVE_DIR, f'{prefix}_{name}.pth'))
-    LOGGER.info(f"Models saved with prefix {prefix}")
-
-def load_models(models, prefix):
-    for name, model in models.items():
-        sd = load(join(SAVE_DIR, f'{prefix}_{name}.pth'), map_location=next(model.parameters()).device)
-        model.load_state_dict(sd)
-    LOGGER.info(f"Models load with prefix {prefix}")
+    model = find_model(opt.model)
+    instance = model(opt)
+    logger.info("[Create Model] model %s was created" % type(instance).__name__)
+    return instance
 
 
 

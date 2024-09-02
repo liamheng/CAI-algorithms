@@ -1,0 +1,4 @@
+storage/checkpoints/
+storage/datasets/
+storage/results/
+**/__pycache__/
