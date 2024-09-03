@@ -5,6 +5,11 @@ The repository is the official pytorch implementation of paper **Multi-view Test
 ### Dataset
 ![](https://github.com/liamheng/CAI-algorithms/blob/main/figs/dataset_overview_github.png)
 
+**The annotated CatInstSeg and CatS can be found at:**
+
+- CatInstSeg: [](https://github.com/liamheng/CAI-algorithms/blob/main/storage/datasets/CatInstSeg)
+- CatS: [](https://github.com/liamheng/CAI-algorithms/blob/main/storage/datasets/CatS)
+
 **Dataset Preprocessing:** [Category Standardization](https://github.com/liamheng/CAI-algorithms/blob/main/Category%20Standardization.pdf)
 
 ### Package dependency
