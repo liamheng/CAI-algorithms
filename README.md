@@ -12,6 +12,8 @@ The repository is the official pytorch implementation of paper **Multi-view Test
 
 **Dataset Preprocessing:** [Category Standardization](https://github.com/liamheng/CAI-algorithms/blob/main/Category%20Standardization.pdf)
 
+**Note:** A "mapping_merge_tools.csv" file is necessary for your dataset. For example, if your CaDIS dataset is located in "storage/datasets/cadis", then there should be a "mapping_merge_tools.csv" in the same directory. We provide an example file for label mapping in CaDIS dataset. [Example](https://github.com/liamheng/CAI-algorithms/blob/main/static/mapping_merge_tools.csv)
+
 ### Package dependency
 
 - easydict==5.1.1
@@ -36,16 +38,17 @@ For source pretraining phase of MUTA model, run the following command:
 ```sh
 # source_muta
 bash storage/scripts/muta_source_cadis.sh # training on dataset CaDIS
-bash storage/scripts/muta_source_cadis_catinstseg.sh # testing on dataset CatInstSeg
-bash storage/scripts/muta_source_cadis_cats.sh # testing on dataset CatS
+# bash storage/scripts/muta_source_cadis_catinstseg.sh # testing on dataset CatInstSeg
+# bash storage/scripts/muta_source_cadis_cats.sh # testing on dataset CatS
 ```
+**Updated:** We now provide the pretrained weights of muta_source in [storage folder](https://github.com/liamheng/CAI-algorithms/blob/main/storage/checkpoints/source_domain)
 
 Alternatively, we provide a script to pretrain deeplabv3 as the baseline:
 ```sh
 # source_deeplabv3
 bash storage/scripts/deeplabv3_cadis.sh # training on dataset CaDIS
-bash storage/scripts/deeplabv3_cadis_catinstseg.sh # testing on dataset CatInstSeg
-bash storage/scripts/deeplabv3_cadis_cats.sh # testing on dataset CatS
+# bash storage/scripts/deeplabv3_cadis_catinstseg.sh # testing on dataset CatInstSeg
+# bash storage/scripts/deeplabv3_cadis_cats.sh # testing on dataset CatS
 ```
 
 ## Adaptation
@@ -56,7 +59,7 @@ To conduct **Test Time Adaptation(TTA)**, where each sample is adapted individua
 ```sh
 # tta_muta
 bash storage/scripts/muta_tta_cadis2catinstseg.sh # tta from CaDIS to CatInstSeg
-bash storage/scripts/muta_tta_cadis2cats.sh # tta from CaDIS to CatS
+# bash storage/scripts/muta_tta_cadis2cats.sh # tta from CaDIS to CatS
 ```
 
 For **Source Free Domain Adaptation(SFDA)**, where samples from target domain are adapted all together, run the command:
@@ -64,7 +67,7 @@ For **Source Free Domain Adaptation(SFDA)**, where samples from target domain ar
 ```sh
 # sfda_muta
 bash storage/scripts/muta_sfda_cadis2catinstseg.sh # sfda from CaDIS to CatInstSeg
-bash storage/scripts/muta_sfda_cadis2cats.sh # sfda from CaDIS to CatS
+# bash storage/scripts/muta_sfda_cadis2cats.sh # sfda from CaDIS to CatS
 ```
 
 Similar to the source pretraining procudure, we provide the deeplabv3 versions for TTA and SFDA respectively:
@@ -72,9 +75,11 @@ Similar to the source pretraining procudure, we provide the deeplabv3 versions f
 ```sh
 # tta_deeplabv3
 bash storage/scripts/deeplanv3_tta_cadis2catinstseg.sh # tta from CaDIS to CatInstSeg
-bash storage/scripts/deeplanv3_tta_cadis2cats.sh # tta from CaDIS to CatS
+# bash storage/scripts/deeplanv3_tta_cadis2cats.sh # tta from CaDIS to CatS
 
 # sfda_deeplabv3
 bash storage/scripts/deeplanv3_sfda_cadis2catinstseg.sh # sfda from CaDIS to CatInstSeg
-bash storage/scripts/deeplanv3_sfda_cadis2cats.sh # sfda from CaDIS to CatS
+# bash storage/scripts/deeplanv3_sfda_cadis2cats.sh # sfda from CaDIS to CatS
 ```
+
+For experiments on CatS dataset, simply replace the 'data_root' in the script. Besides, be careful to check the correctness of the mapping file.

@@ -1,0 +1,31 @@
+Class id	Class Name	New Class	New Name
+0	Pupil	1	Pupil
+1	Surgical Tape	2	Skin
+2	Hand	2	Skin
+3	Eye Retractors	5	eye retractor
+4	Iris	0	Iris
+5	Skin	2	Skin
+6	Cornea	3	Cornea
+7	Hydrodissection Cannula	4	Surgical Tools
+8	Viscoelastic Cannula	4	Surgical Tools
+9	Capsulorhexis Cystotome	4	Surgical Tools
+10	Rycroft Cannula	4	Surgical Tools
+11	Bonn Forceps	4	Surgical Tools
+12	Primary Knife	4	Surgical Tools
+13	Phacoemulsifier Handpiece	4	Surgical Tools
+14	Lens Injector	4	Surgical Tools
+15	I/A Handpiece	4	Surgical Tools
+16	Secondary Knife	4	Surgical Tools
+17	Micromanipulator	4	Surgical Tools
+18	I/A Handpiece Handle	4	Surgical Tools
+19	Capsulorhexis Forceps	4	Surgical Tools
+20	Rycroft Cannula Handle	4	Surgical Tools
+21	Phacoemulsifier Handpiece Handle	4	Surgical Tools
+22	Capsulorhexis Cystotome Handle	4	Surgical Tools
+23	Secondary Knife Handle	4	Surgical Tools
+24	Lens Injector Handle	4	Surgical Tools
+27	Charleux Cannula	4	Surgical Tools
+28	Primary Knife Handle	4	Surgical Tools
+29	Vitrectomy Handpiece	4	Surgical Tools
+32	Hydrodissection Cannula Handle	4	Surgical Tools
+33	Troutman Forceps	4	Surgical Tools

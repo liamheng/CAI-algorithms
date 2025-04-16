@@ -9,7 +9,7 @@ python test.py \
 --netTask deeplabv3_resnet50 \
 --initialization in_model \
 --dataset single_domain \
---data_root /data/oumingyang/CodeBank/storage/datasets/CatInstSeg_clean \
+--data_root PATH_TO_YOUR_DATASET \
 --preprocess rescale \
 --load_size 720 405 \
 --mapping_file_name mapping_merge_tools \
