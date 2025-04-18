@@ -53,19 +53,14 @@ For source pretraining phase of MUTA model, run the following command:
 ```sh
 # source_muta
 bash storage/scripts/muta_source_cadis.sh # training on dataset CaDIS
-# bash storage/scripts/muta_source_cadis_catinstseg.sh # testing on dataset CatInstSeg
-# bash storage/scripts/muta_source_cadis_cats.sh # testing on dataset CatS
 ```
 **Updated:** We now provide the pretrained weights of muta_source in [storage folder](https://github.com/liamheng/CAI-algorithms/blob/main/storage/checkpoints/source_domain)
 
-Alternatively, we provide a script to pretrain deeplabv3 as the baseline:
+Alternatively, we provide a pretrained deeplabv3 [storage folder](https://github.com/liamheng/CAI-algorithms/blob/main/storage/checkpoints/deeplabv3_cadis):
 ```sh
 # source_deeplabv3
-bash storage/scripts/deeplabv3_cadis.sh # training on dataset CaDIS
-# bash storage/scripts/deeplabv3_cadis_catinstseg.sh # testing on dataset CatInstSeg
-# bash storage/scripts/deeplabv3_cadis_cats.sh # testing on dataset CatS
+bash storage/scripts/deeplabv3_cadis.sh # testing script of deeplabv3
 ```
-
 ## Adaptation
 As mentioned in paper, we provide solutions for both domain adaptation scenarios without source.
 
@@ -74,15 +69,12 @@ To conduct **Test Time Adaptation(TTA)**, where each sample is adapted individua
 ```sh
 # tta_muta
 bash storage/scripts/muta_tta_cadis2catinstseg.sh # tta from CaDIS to CatInstSeg
-# bash storage/scripts/muta_tta_cadis2cats.sh # tta from CaDIS to CatS
 ```
-
 For **Source Free Domain Adaptation(SFDA)**, where samples from target domain are adapted all together, run the command:
 
 ```sh
 # sfda_muta
 bash storage/scripts/muta_sfda_cadis2catinstseg.sh # sfda from CaDIS to CatInstSeg
-# bash storage/scripts/muta_sfda_cadis2cats.sh # sfda from CaDIS to CatS
 ```
 
 Similar to the source pretraining procudure, we provide the deeplabv3 versions for TTA and SFDA respectively:
@@ -90,11 +82,9 @@ Similar to the source pretraining procudure, we provide the deeplabv3 versions f
 ```sh
 # tta_deeplabv3
 bash storage/scripts/deeplanv3_tta_cadis2catinstseg.sh # tta from CaDIS to CatInstSeg
-# bash storage/scripts/deeplanv3_tta_cadis2cats.sh # tta from CaDIS to CatS
 
 # sfda_deeplabv3
 bash storage/scripts/deeplanv3_sfda_cadis2catinstseg.sh # sfda from CaDIS to CatInstSeg
-# bash storage/scripts/deeplanv3_sfda_cadis2cats.sh # sfda from CaDIS to CatS
 ```
 
-For experiments on CatS dataset, simply replace the 'data_root' in the script. Besides, be careful to check the correctness of the mapping file.
+For experiments on CatS dataset, simply replace the 'data_root' in the script. Besides, be careful to check the correctness of the label mapping file.

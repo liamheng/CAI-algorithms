@@ -1,5 +1,5 @@
 python train.py \
---name muta_source_cadis_catinstseg \
+--name muta_sfda_cadis2catinstseg \
 --gpu 0 \
 --checkpoints_dir storage/checkpoints \
 --phase training \
@@ -31,3 +31,23 @@ python train.py \
 --mu_ent 1 \
 --mu_con 1 \
 --threshold 0.95
+
+python test.py \
+--name muta_sfda_cadis2catinstseg \
+--gpu 1 \
+--checkpoints_dir storage/checkpoints \
+--phase test \
+--model muta_source \
+--batch_size 1 \
+--input_nc 3 \
+--output_nc 6 \
+--netTask res50 \
+--initialization in_model \
+--dataset single_domain \
+--data_root PATH_TO_YOUR_DATASET \
+--preprocess rescale \
+--load_size 720 405 \
+--mapping_file_name mapping_merge_tools \
+--load_suffix epoch_160 \
+--results_dir storage/results/validation \
+--eval
