@@ -1,7 +1,20 @@
 # Multi-view Test-time Adaptation for Semantic Segmentation in Clinical Cataract Surgery
-The repository is the official pytorch implementation of paper **Multi-view Test-time Adaptation for Semantic Segmentation in Clinical Cataract Surgery**. 
+The repository is the official pytorch implementation of the paper **Multi-view Test-time Adaptation for Semantic Segmentation in Clinical Cataract Surgery**. 
+```
+@ARTICLE{10843248,
+  author={Li, Heng and Ou, Mingyang and Li, Haojin and Qiu, Zhongxi and Niu, Ke and Fu, Huazhu and Liu, Jiang},
+  journal={IEEE Transactions on Medical Imaging}, 
+  title={Multi-view Test-time Adaptation for Semantic Segmentation in Clinical Cataract Surgery}, 
+  year={2025},
+  volume={},
+  number={},
+  pages={1-1},
+  keywords={Surgery;Cataracts;Adaptation models;Semantic segmentation;Data models;Biomedical imaging;Training;Data privacy;Lighting;Decoding;Cataract Surgery;semantic segmentation;test-time adaptation;multi-view learning},
+  doi={10.1109/TMI.2025.3529875}}
+```
+If you find our work useful in your research please consider citing our paper.
 
-## Prerequsite
+## Prerequisite
 ### Dataset
 ![](https://github.com/liamheng/CAI-algorithms/blob/main/figs/dataset_overview_github.png)
 
@@ -13,6 +26,8 @@ The repository is the official pytorch implementation of paper **Multi-view Test
 **Dataset Preprocessing:** [Category Standardization](https://github.com/liamheng/CAI-algorithms/blob/main/Category%20Standardization.pdf)
 
 **Note:** A "mapping_merge_tools.csv" file is necessary for your dataset. For example, if your CaDIS dataset is located in "storage/datasets/cadis", then there should be a "mapping_merge_tools.csv" in the same directory. We provide an example file for label mapping in CaDIS dataset. [Example](https://github.com/liamheng/CAI-algorithms/blob/main/static/mapping_merge_tools.csv)
+Please contact 12332467@mail.sustech.edu.cn for dataset preprocessing codes.
+
 
 ### Package dependency
 
