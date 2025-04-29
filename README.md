@@ -26,7 +26,6 @@ If you find our work useful in your research please consider citing our paper.
 **Dataset Preprocessing:** [Category Standardization](https://github.com/liamheng/CAI-algorithms/blob/main/Category%20Standardization.pdf)
 
 **Note:** A "mapping_merge_tools.csv" file is necessary for your dataset. For example, if your CaDIS dataset is located in "storage/datasets/cadis", then there should be a "mapping_merge_tools.csv" in the same directory. We provide an example file for label mapping in CaDIS dataset. [Example](https://github.com/liamheng/CAI-algorithms/blob/main/static/mapping_merge_tools.csv)
-Please contact 12332467@mail.sustech.edu.cn for dataset preprocessing codes.
 
 
 ### Package dependency
